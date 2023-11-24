@@ -1,20 +1,23 @@
 import styles from "./search.module.scss";
-import { ChangeEventHandler } from "react";
+// import { ChangeEventHandler } from "react";
 import { Input } from "../../ui/input";
 import { Chips } from "../../ui/chips";
+import { useApp } from "../../providers/appProvider";
 
-interface SearchProps {
-  value: string;
-  debouncedValue?: string;
-  handleChange: ChangeEventHandler<HTMLInputElement>;
-}
+export const Search = () => {
+  const { value, handleChange, handleChips, handleClear } =
+    useApp();
 
-export const Search = ({ value, handleChange }: SearchProps) => {
   return (
     <div className={styles.search}>
-      <Input value={value} handleChange={handleChange} />
+      <Input
+        value={value}
+        handleChange={handleChange}
+        handleClear={handleClear}
+      />
       <Chips
-        chipsValues={["raz", "dva", "raz", "dva", "raz", "dva", "raz", "dva"]}
+        handleChips={handleChips}
+        chipsValues={["Spider", "Black Panther", "Hawkeye", "Black Widow"]}
       />
     </div>
   );

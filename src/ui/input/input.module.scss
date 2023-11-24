@@ -1,5 +1,19 @@
 .input {
-  font-size    : 24px;
-  border-radius: 10px;
-  padding      : 5px 10px;
+  position: relative;
+  height  : 38px;
+
+  input {
+    width        : 100%;
+    font-size    : 24px;
+    border-radius: 10px;
+    padding      : 5px 25px 5px 10px;
+  }
+
+  .clear {
+    cursor  : pointer;
+    position: absolute;
+    font-size: 20px;
+    top     : 10px;
+    right   : 10px;
+  }
 }

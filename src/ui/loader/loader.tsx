@@ -9,7 +9,10 @@ export const Loader = ({ isLoading }: LoaderProps) => {
   const loaderColor = "#F09667";
 
   return (
-    <div className={styles.loader}>
+    <div
+      className={styles.loader}
+      style={isLoading ? { height: "100px" } : { height: "" }}
+    >
       <Bars
         height="80"
         width="80"

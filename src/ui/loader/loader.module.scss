@@ -1,6 +1,11 @@
 .loader {
+  top            : 260px;
+  right          : 0;
+  left           : 0;
+  position       : absolute;
   margin-top     : 16px;
   display        : flex;
   justify-content: center;
   align-items    : center;
+  backdrop-filter: blur(6px);
 }
