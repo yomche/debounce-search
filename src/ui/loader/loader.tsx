@@ -6,7 +6,7 @@ interface LoaderProps {
 }
 
 export const Loader = ({ isLoading }: LoaderProps) => {
-  const loaderColor = "#F09667";
+  const loaderColor = "#fff";
 
   return (
     <div
