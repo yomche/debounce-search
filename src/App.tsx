@@ -5,13 +5,15 @@ import { Wrapper } from "./components/wrapper";
 import { Loader } from "./ui/loader";
 import axios from "axios";
 
+const apiKey = import.meta.env.VITE_APP_API_KEY;
+const apiHash = import.meta.env.VITE_APP_API_HASH;
+
 function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [value, setValue] = useState<string>("");
   const debouncedValue = useDebounce<string>(value, 500);
-  const apiKey = "apiKey";
-  const apiHash = "apiHash";
-  const queryString = `apikey=${apiKey}&hash${apiHash}&titleStartsWith=${debouncedValue}`;
+  const [results, setResults] = useState<any>([]);
+  const queryString = `ts=1&apikey=${apiKey}&hash=${apiHash}&titleStartsWith=${debouncedValue}`;
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);
@@ -23,7 +25,8 @@ function App() {
       const response = await axios.get(
         `https://gateway.marvel.com/v1/public/comics?${queryString}`
       );
-      console.log(response);
+      console.log(response.data.data.results);
+      setResults([...response.data.data.results]);
       setIsLoading(false);
     } catch (err) {
       console.log(err);
@@ -34,7 +37,7 @@ function App() {
     if (debouncedValue) {
       fetchData();
     } else {
-      console.log("something");
+      setResults([]);
     }
   }, [debouncedValue]);
 
@@ -48,6 +51,7 @@ function App() {
           handleChange={handleChange}
         />
         <div className="results">
+          {results.map((item) => item.title)}
           <Loader isLoading={isLoading} />
         </div>
       </Wrapper>
