@@ -1,0 +1,16 @@
+.chips {
+  display        : flex;
+  flex-wrap      : wrap;
+  justify-content: center;
+  margin-top     : 15px;
+  gap            : 15px;
+
+  .item {
+    cursor          : pointer;
+    font-size       : 20px;
+    padding         : 5px 10px;
+    border-radius   : 10px;
+    color           : var(--white);
+    background-color: var(--orange);
+  }
+}
