@@ -3,7 +3,6 @@ import { Wrapper } from "./components/wrapper";
 import { Loader } from "./ui/loader";
 import { Card } from "./components/card";
 import { useApp } from "./providers/appProvider";
-import image from "./assets/shield.png";
 
 function App() {
   const { results, isLoading } = useApp();
@@ -19,8 +18,9 @@ function App() {
           ))}
           <Loader isLoading={isLoading} />
           {!results.length && !isLoading && (
-            <div className="spinner">
-              <img width={200} src={image} />
+            <div className="empty">
+              Your marvelous search results <br />
+              {"will be here :)"}
             </div>
           )}
         </div>

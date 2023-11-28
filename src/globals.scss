@@ -61,7 +61,7 @@ html {
   }
 }
 
-.spinner {
+.empty {
   top            : 260px;
   right          : 0;
   left           : 0;
@@ -69,12 +69,5 @@ html {
   display        : flex;
   justify-content: center;
   align-items    : center;
-  opacity        : .1;
-  animation      : spin 10s linear infinite;
-}
-@keyframes spin {
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform        : rotate(360deg);
-  }
+  text-align     : center;
 }
